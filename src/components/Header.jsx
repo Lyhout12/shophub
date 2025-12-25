@@ -46,7 +46,9 @@ export default function Header({ cartCount, onCartClick, onLoginClick, onAdminCl
             <button className="login-btn" onClick={onLoginClick}>
               Login / Register
             </button>
-          )}
+            
+          )
+          }
           
           <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             ☰
@@ -56,7 +58,7 @@ export default function Header({ cartCount, onCartClick, onLoginClick, onAdminCl
 
       {isMenuOpen && (
         <nav className="mobile-menu">
-          <a href="#home">Home</a>
+          {/* <a href="#home">Home</a> */}
           <a href="#products">Products</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>

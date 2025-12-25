@@ -85,8 +85,8 @@ export default function Login({ onClose, onSwitchToRegister }) {
 
           <div className="demo-credentials">
             <p><strong>Demo Credentials:</strong></p>
-            <p>Admin: admin@example.com / admin123</p>
-            <p>User: user@example.com / user123</p>
+            {/* <p>Admin: admin@example.com / admin123</p> */}
+            {/* <p>User: user@example.com / user123</p> */}
           </div>
 
           <button type="submit" className="submit-btn" disabled={loading}>

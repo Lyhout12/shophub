@@ -157,18 +157,18 @@ export const products = [
     inStock: true,
     discount: 10
   },
-  {
-    id: 14,
-    name: "Modern Cookbook",
-    category: "books",
-    price: 29.99,
-    rating: 4.7,
-    reviews: 45,
-    image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&h=400&fit=crop",
-    description: "A collection of contemporary recipes and kitchen tips for home cooks.",
-    inStock: true,
-    discount: 0
-  },
+  // {
+  //   id: 14,
+  //   name: "Modern Cookbook",
+  //   category: "books",
+  //   price: 29.99,
+  //   rating: 4.7,
+  //   reviews: 45,
+  //   image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&h=400&fit=crop",
+  //   description: "A collection of contemporary recipes and kitchen tips for home cooks.",
+  //   inStock: true,
+  //   discount: 0
+  // },
   {
     id: 15,
     name: "Professional Soccer Ball",
@@ -176,7 +176,7 @@ export const products = [
     price: 34.99,
     rating: 4.6,
     reviews: 87,
-    image: "https://images.unsplash.com/photo-1558618666073-b76370e1b007?w=400&h=400&fit=crop",
+    image: "https://imgs.search.brave.com/rjvulOwowGHote9AW2KovWaUr-iJq7eepW8UQA4Hznc/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly94dHJl/bWVzb2NjZXJvbmxp/bmUuY29tL2Nkbi9z/aG9wL2ZpbGVzLzEt/YWRpZGFzLWZ1c3Ni/YWxsbGllYmUtcHJv/LWlxMzY4Mi5qcGc_/dj0xNzQwNjI2NzQw/JndpZHRoPTIwMDA",
     description: "Regulation size professional soccer ball with excellent durability.",
     inStock: true,
     discount: 8
@@ -188,7 +188,7 @@ export const products = [
     price: 79.99,
     rating: 4.5,
     reviews: 102,
-    image: "https://images.unsplash.com/photo-1546519638-68711109d298?w=400&h=400&fit=crop",
+    image: "https://imgs.search.brave.com/ZrJrlEnf9Y1ViNP70E1m4SHQtkd_xyc8tckBdGKyfU4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pNS53/YWxtYXJ0aW1hZ2Vz/LmNvbS9zZW8vT3Zl/ci10aGUtRG9vci1C/YXNrZXRiYWxsLUhv/b3BfYmE4N2EzODkt/MTgzOS00YWEwLThk/MTMtZWM4NTMzOWQz/OWE3Ljc5ZDI0NWI2/NTJhYWJkZDdhOWY3/ODA1MjE1MTg1ODY3/LnBuZz9vZG5IZWln/aHQ9NTgwJm9kbldp/ZHRoPTU4MCZvZG5C/Zz1GRkZGRkY",
     description: "Indoor/outdoor basketball hoop with adjustable height and sturdy base.",
     inStock: true,
     discount: 12
@@ -200,7 +200,7 @@ export const products = [
     price: 89.99,
     rating: 4.7,
     reviews: 156,
-    image: "https://images.unsplash.com/photo-1554068865-24cecd4e34c8?w=400&h=400&fit=crop",
+    image: "https://imgs.search.brave.com/NRPBAaSfa3voh4V7NK-zGud5ur4OkFutu2ivv9XSXWs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTQy/OTQxMDUyMy9waG90/by90ZW5uaXMtcmFj/a2V0LWFuZC10ZW5u/aXMtYmFsbC1pc29s/YXRlZC1vbi13aGl0/ZS1iYWNrZ3JvdW5k/LmpwZz9zPTYxMng2/MTImdz0wJms9MjAm/Yz1jdmdFTGRVMzdW/NmxycDcxQ3FaWGZP/VGlteXF1dHlGYVYy/WkFibTVxdWFvPQ",
     description: "Lightweight tennis racket with carbon fiber frame and comfortable grip.",
     inStock: true,
     discount: 15
@@ -212,7 +212,7 @@ export const products = [
     price: 44.99,
     rating: 4.4,
     reviews: 64,
-    image: "https://images.unsplash.com/photo-1625238d7af0-3d65d2c6a6c9?w=400&h=400&fit=crop",
+    image: "https://imgs.search.brave.com/Bz0nTQeG482TPAWu6e1wopf8hzNBSm-xXnPBZkxJfNo/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMtbmEuc3NsLWlt/YWdlcy1hbWF6b24u/Y29tL2ltYWdlcy9J/LzcxZy1QLWV5YW1M/LmpwZw",
     description: "Complete badminton set with 2 rackets, shuttlecocks, and carrying bag.",
     inStock: true,
     discount: 10
@@ -224,10 +224,193 @@ export const products = [
     price: 24.99,
     rating: 4.3,
     reviews: 71,
-    image: "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=400&h=400&fit=crop",
+    image: "https://imgs.search.brave.com/ODhESRG9KTlBVZnURMc-Ehiu3VutPnKh_n3lzbrBEj8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNTMx/MzgzNDQzL3Bob3Rv/L3ZvbGxleWJhbGwu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PW81NjRuZGM2XzQy/RDhCbnA2UDlDd3lP/MDBqTGlOcGRTX0VV/bnVLRUIyRm89",
     description: "Professional grade volleyball with superior bounce and control.",
     inStock: true,
     discount: 5
+  },
+  // Clothing products
+  {
+    id: 20,
+    name: "Denim Jeans",
+    category: "clothing",
+    price: 59.99,
+    rating: 4.5,
+    reviews: 143,
+    image: "https://imgs.search.brave.com/H5EdwHm1zzbiNXkvQSXczYAD7kcgMDzWTg6a7B0Nsns/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/c2h1dHRlcnN0b2Nr/LmNvbS9pbWFnZS1w/aG90by9mb2xkZWQt/bGlnaHQtYmx1ZS1k/ZW5pbS1qZWFucy0y/NjBudy0yMjIwMTgz/MDcxLmpwZw",
+    description: "Classic blue denim jeans with comfortable fit and durable fabric.",
+    inStock: true,
+    discount: 15
+  },
+  {
+    id: 21,
+    name: "Polo Shirt",
+    category: "clothing",
+    price: 44.99,
+    rating: 4.4,
+    reviews: 98,
+    image: "https://imgs.search.brave.com/hlYyDrD9D2TG-UnFMkheLYMoke0PpE3ZtuQJ9qQOdeg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/bWVkaWEuYW1wbGll/bmNlLm5ldC9pL3Rv/bV9mb3JkL0pQUzAw/My1KTUMwMTBTMjNf/SEI1MzJfQVBQRU5E/R1JJRA",
+    description: "Premium polo shirt available in multiple colors with breathable material.",
+    inStock: true,
+    discount: 10
+  },
+  {
+    id: 22,
+    name: "Casual Sweater",
+    category: "clothing",
+    price: 69.99,
+    rating: 4.6,
+    reviews: 125,
+    image: "https://imgs.search.brave.com/FBBk5k-YAYWZgLUH9an8Xg79Ku1omXDxEhZOryxCUT0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/dGhld2lyZWN1dHRl/ci5jb20vd3AtY29u/dGVudC9tZWRpYS8y/MDI1LzExL0JFU1Qt/TUVOUy1XT01FTlMt/Q0FTSE1FUkUtU1dF/QVRFUlMtMjA0OHB4/LTY0NTMuanBnP2F1/dG89d2VicCZxdWFs/aXR5PTc1JndpZHRo/PTEwMjQ",
+    description: "Cozy knit sweater perfect for casual outings and cool weather.",
+    inStock: true,
+    discount: 12
+  },
+  {
+    id: 23,
+    name: "Summer Dress",
+    category: "clothing",
+    price: 54.99,
+    rating: 4.7,
+    reviews: 89,
+    image: "https://imgs.search.brave.com/tuBb1-0pSexbrSVHVnDHqDCHxOL0S1NlCmI9go1xbuY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAyLzg1Lzg5Lzc2/LzM2MF9GXzI4NTg5/NzY2OF9TdUE5VlNq/QktLQ0VBeHlUSjFF/UkpnbW9FV3dPVVQy/bS5qcGc",
+    description: "Light and breathable summer dress with elegant design.",
+    inStock: true,
+    discount: 18
+  },
+  {
+    id: 24,
+    name: "Shorts",
+    category: "clothing",
+    price: 39.99,
+    rating: 4.3,
+    reviews: 76,
+    image: "https://imgs.search.brave.com/QY8suXg_2Ild0hHlaT3pXr73kIuHipmUp1_5bGyRrrI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9jbG9zZS11cC1z/aG9ydHMtYWdhaW5z/dC13aGl0ZS1iYWNr/Z3JvdW5kXzEwNDg5/NDQtMjE0NzI0Mzcu/anBnP3NlbXQ9YWlz/X2h5YnJpZCZ3PTc0/MCZxPTgw",
+    description: "Comfortable casual shorts perfect for everyday wear.",
+    inStock: true,
+    discount: 8
+  },
+  // Footwear products (Sport)
+  {
+    id: 25,
+    name: "Basketball Shoes",
+    category: "footwear",
+    price: 129.99,
+    rating: 4.7,
+    reviews: 198,
+    image: "https://imgs.search.brave.com/Qmk3tEWRzD7SyLgbV11Nkjg-bl-enpdAG_m0RGo2SfE/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMubmlrZS5jb20v/YS9pbWFnZXMvdF93/ZWJfcHdfNTkyX3Yy/L2ZfYXV0by91XzEy/NmFiMzU2LTQ0ZDgt/NGEwNi04OWI0LWZj/ZGNjOGRmMDI0NSxj/X3NjYWxlLGZsX3Jl/bGF0aXZlLHdfMS4w/LGhfMS4wLGZsX2xh/eWVyX2FwcGx5L2Vm/ZmU2MTJjLTY2Mjkt/NGY2MC04ZGM5LWY0/YmZlZjQ1YTc0Yi9K/T1JEQU4rWklPTis0/LnBuZw",
+    description: "High-performance basketball shoes with ankle support and cushioning.",
+    inStock: true,
+    discount: 20
+  },
+  {
+    id: 26,
+    name: "Soccer Cleats",
+    category: "footwear",
+    price: 99.99,
+    rating: 4.6,
+    reviews: 167,
+    image: "https://imgs.search.brave.com/lTniue4G_pq-XGwkJp0DvAEv1FV2eN96rYZVVR-1H7E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzc5LzVh/LzY3Lzc5NWE2Nzg0/ZTM5NTQxMmZmODFj/MWM5MmIyODM0OWYy/LmpwZw",
+    description: "Professional soccer cleats with excellent traction and ball control.",
+    inStock: true,
+    discount: 15
+  },
+  {
+    id: 27,
+    name: "Tennis Court Shoes",
+    category: "footwear",
+    price: 89.99,
+    rating: 4.5,
+    reviews: 145,
+    image: "https://imgs.search.brave.com/cKbFR6hh8KYKesUPO4IFcbTWRcWtPGhz9GoCBOQJ2r4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jb3Vy/dHNpZGV0ZW5uaXMu/Y29tL2Nkbi9zaG9w/L3Byb2R1Y3RzLzA2/ODA2LTA5MC0wZTc5/ZTQxMzRkMjAyZjYz/ODRhMjZkYTg0M2Vi/OTYxMDJjYjg4NmFi/XzJkZjQ1Nzk0LWI2/NDgtNDE1MC05MDBk/LWVkNmQ3YzljOGQz/Nl84MDB4LndlYnA_/dj0xNzAzMzYzNzEy",
+    description: "Lightweight tennis shoes with superior court grip.",
+    inStock: true,
+    discount: 12
+  },
+  {
+    id: 28,
+    name: "Hiking Boots",
+    category: "footwear",
+    price: 139.99,
+    rating: 4.8,
+    reviews: 212,
+    image: "https://imgs.search.brave.com/6UOXKbo1h99nGXt931JA6w8WdrtULChvIzRPxorwshI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/dGhld2lyZWN1dHRl/ci5jb20vd3AtY29u/dGVudC9tZWRpYS8y/MDIxLzEyL2hpa2lu/Z2Jvb3RzLTIwNDhw/eC1EU0NGNzQ2NC5q/cGc_YXV0bz13ZWJw/JnF1YWxpdHk9NzUm/d2lkdGg9MTAyNA",
+    description: "Durable waterproof hiking boots with excellent ankle support.",
+    inStock: true,
+    discount: 10
+  },
+  {
+    id: 29,
+    name: "Cricket Shoes",
+    category: "footwear",
+    price: 84.99,
+    rating: 4.4,
+    reviews: 92,
+    image: "https://imgs.search.brave.com/VPU1wF6b4cP1FS4npLHt9EH-R7pjiA4kWzhleflxE9U/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jcmlj/a2V0aG9ja2V5LTIw/NGE0Lmt4Y2RuLmNv/bS84NzkwMS1tZWRp/dW1fZGVmYXVsdC9w/YXludHItcHJvLXgt/bWlkLXNwaWtlLWNy/aWNrZXQtc2hvZXMt/MjAyNS5qcGc",
+    description: "Specialized cricket shoes with optimal stability and spin control.",
+    inStock: true,
+    discount: 14
+  },
+  {
+    id: 30,
+    name: "Badminton Shoes",
+    category: "footwear",
+    price: 74.99,
+    rating: 4.5,
+    reviews: 108,
+    image: "https://imgs.search.brave.com/PAZLsuzqyzzLX6TQWEN-Im6qdKSp_EgmDFyqIcoqLsY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NzFqdHZRRmRhb0wu/anBn",
+    description: "Fast-moving badminton shoes with excellent lateral support.",
+    inStock: true,
+    discount: 9
+  },
+  // Home products
+  {
+    id: 31,
+    name: "Desk Lamp",
+    category: "home",
+    price: 49.99,
+    rating: 4.6,
+    reviews: 178,
+    image: "https://imgs.search.brave.com/CyuyxukKdWgoPrFyoUQwP892-oEgE60JHBLzLeGySGA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/YW5nbGVwb2lzZS5j/b20vd3AtY29udGVu/dC91cGxvYWRzL3Np/dGVzLzMvMjAyMS8x/Mi90NzUtbWluaS10/YWJsZS1sYW1wLXll/bGxvdy0xLTEtNzIw/eDcyMC5qcGc",
+    description: "Modern LED desk lamp with adjustable brightness and USB charging port.",
+    inStock: true,
+    discount: 11
+  },
+  {
+    id: 32,
+    name: "Wall Clock",
+    category: "home",
+    price: 34.99,
+    rating: 4.4,
+    reviews: 134,
+    image: "https://imgs.search.brave.com/mYHtoDNuDhs7Xq9-R4ytL95ajhDB9nnrVMw-Eu0iskE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NzFLS0twWlFPdkwu/anBn",
+    description: "Elegant wall clock with silent mechanism and minimalist design.",
+    inStock: true,
+    discount: 7
+  },
+  {
+    id: 33,
+    name: "Throw Pillow",
+    category: "home",
+    price: 29.99,
+    rating: 4.5,
+    reviews: 99,
+    image: "https://imgs.search.brave.com/ykA8GorWEOZg6SafMnF0unciP6ciMxm0RBAcM1szv2o/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jYjIu/c2NlbmU3LmNvbS9p/cy9pbWFnZS9DQjIv/Um9zbGluV3JtV2h0/U2hybG5nUGx3MThT/SEYyNS8kd2ViX3Bs/cF9jYXJkJC8yNTEy/MjMwODQyNDAvUm9z/bGluV3JtV2h0U2hy/bG5nUGx3MThTSEYy/NS5qcGc",
+    description: "Comfortable decorative throw pillow with soft velvet cover.",
+    inStock: true,
+    discount: 10
+  },
+  {
+    id: 34,
+    name: "Kitchen Knife Set",
+    category: "home",
+    price: 59.99,
+    rating: 4.7,
+    reviews: 187,
+    image: "https://images.unsplash.com/photo-1593618998160-e34014e67546?w=400&h=400&fit=crop",
+    description: "Professional kitchen knife set with stainless steel blades and wooden handle.",
+    inStock: true,
+    discount: 13
   }
 ];
 
@@ -238,6 +421,6 @@ export const categories = [
   { id: 4, name: "accessories", label: "Accessories", icon: "👜" },
   { id: 5, name: "fitness", label: "Fitness", icon: "💪" },
   { id: 6, name: "home", label: "Home & Kitchen", icon: "🏠" },
-  { id: 7, name: "books", label: "Books", icon: "📚" },
+  // { id: 7, name: "books", label: "Books", icon: "📚" },
   { id: 8, name: "sports", label: "Sports", icon: "⚽" }
 ];
