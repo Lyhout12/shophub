@@ -168,6 +168,66 @@ export const products = [
     description: "A collection of contemporary recipes and kitchen tips for home cooks.",
     inStock: true,
     discount: 0
+  },
+  {
+    id: 15,
+    name: "Professional Soccer Ball",
+    category: "sports",
+    price: 34.99,
+    rating: 4.6,
+    reviews: 87,
+    image: "https://images.unsplash.com/photo-1558618666073-b76370e1b007?w=400&h=400&fit=crop",
+    description: "Regulation size professional soccer ball with excellent durability.",
+    inStock: true,
+    discount: 8
+  },
+  {
+    id: 16,
+    name: "Basketball Hoop Set",
+    category: "sports",
+    price: 79.99,
+    rating: 4.5,
+    reviews: 102,
+    image: "https://images.unsplash.com/photo-1546519638-68711109d298?w=400&h=400&fit=crop",
+    description: "Indoor/outdoor basketball hoop with adjustable height and sturdy base.",
+    inStock: true,
+    discount: 12
+  },
+  {
+    id: 17,
+    name: "Tennis Racket",
+    category: "sports",
+    price: 89.99,
+    rating: 4.7,
+    reviews: 156,
+    image: "https://images.unsplash.com/photo-1554068865-24cecd4e34c8?w=400&h=400&fit=crop",
+    description: "Lightweight tennis racket with carbon fiber frame and comfortable grip.",
+    inStock: true,
+    discount: 15
+  },
+  {
+    id: 18,
+    name: "Badminton Set",
+    category: "sports",
+    price: 44.99,
+    rating: 4.4,
+    reviews: 64,
+    image: "https://images.unsplash.com/photo-1625238d7af0-3d65d2c6a6c9?w=400&h=400&fit=crop",
+    description: "Complete badminton set with 2 rackets, shuttlecocks, and carrying bag.",
+    inStock: true,
+    discount: 10
+  },
+  {
+    id: 19,
+    name: "Volleyball",
+    category: "sports",
+    price: 24.99,
+    rating: 4.3,
+    reviews: 71,
+    image: "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=400&h=400&fit=crop",
+    description: "Professional grade volleyball with superior bounce and control.",
+    inStock: true,
+    discount: 5
   }
 ];
 
@@ -176,7 +236,8 @@ export const categories = [
   { id: 2, name: "clothing", label: "Clothing", icon: "👕" },
   { id: 3, name: "footwear", label: "Footwear", icon: "👟" },
   { id: 4, name: "accessories", label: "Accessories", icon: "👜" },
-  { id: 5, name: "fitness", label: "Fitness", icon: "💪" }
-  ,{ id: 6, name: "home", label: "Home & Kitchen", icon: "🏠" }
-  ,{ id: 7, name: "books", label: "Books", icon: "📚" }
+  { id: 5, name: "fitness", label: "Fitness", icon: "💪" },
+  { id: 6, name: "home", label: "Home & Kitchen", icon: "🏠" },
+  { id: 7, name: "books", label: "Books", icon: "📚" },
+  { id: 8, name: "sports", label: "Sports", icon: "⚽" }
 ];
