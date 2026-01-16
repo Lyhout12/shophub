@@ -6,17 +6,13 @@ import ShoppingCart from './components/ShoppingCart'
 import Checkout from './components/Checkout'
 import Payment from './components/Payment'
 import OrderConfirmation from './components/OrderConfirmation'
-import Login from './components/Login'
-import Register from './components/Register'
-import AdminDashboard from './components/AdminDashboard'
 import Footer from './components/Footer'
-import { AuthProvider, useAuth } from './context/AuthContext'
 import { products, categories } from './data/products'
 import './styles/index.css'
 import './App.css'
 
 function AppContent() {
-  const { isAuthenticated } = useAuth()
+  // AuthContext removed
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [cartItems, setCartItems] = useState([])
   const [showCart, setShowCart] = useState(false)
@@ -25,9 +21,6 @@ function AppContent() {
   const [showConfirmation, setShowConfirmation] = useState(false)
   const [shippingInfo, setShippingInfo] = useState(null)
   const [order, setOrder] = useState(null)
-  const [showLogin, setShowLogin] = useState(false)
-  const [showRegister, setShowRegister] = useState(false)
-  const [showAdmin, setShowAdmin] = useState(false)
 
   const handleAddToCart = (product) => {
     setCartItems(prevItems => {
@@ -94,15 +87,7 @@ function AppContent() {
     <>
       <Header 
         cartCount={cartCount} 
-        onCartClick={() => {
-          if (!isAuthenticated) {
-            setShowLogin(true)
-          } else {
-            setShowCart(true)
-          }
-        }}
-        onLoginClick={() => setShowLogin(true)}
-        onAdminClick={() => setShowAdmin(true)}
+        onCartClick={() => setShowCart(true)}
       />
 
       <main className="main-content">
@@ -165,41 +150,13 @@ function AppContent() {
         />
       )}
 
-      {showLogin && (
-        <Login
-          onClose={() => setShowLogin(false)}
-          onSwitchToRegister={() => {
-            setShowLogin(false)
-            setShowRegister(true)
-          }}
-        />
-      )}
-
-      {showRegister && (
-        <Register
-          onClose={() => setShowRegister(false)}
-          onSwitchToLogin={() => {
-            setShowRegister(false)
-            setShowLogin(true)
-          }}
-        />
-      )}
-
-      {showAdmin && (
-        <AdminDashboard
-          onClose={() => setShowAdmin(false)}
-        />
-      )}
+      {/* Login and Register UI removed */}
     </>
   )
 }
 
 function App() {
-  return (
-    <AuthProvider>
-      <AppContent />
-    </AuthProvider>
-  )
+  return <AppContent />
 }
 
 export default App

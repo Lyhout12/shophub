@@ -1,238 +1,251 @@
-// Mock API Service - can be replaced with real backend API calls
-// For production, replace these URLs with your actual backend API endpoints
+// Mock API Service - Uses static data and localStorage
+// No backend required
 
-const API_BASE_URL = 'http://localhost:5000/api'; // Change this to your API URL
-const USE_MOCK_API = true; // Set to false when using real API
+// Generate a mock token
+const generateToken = () => {
+  return 'mock_token_' + Math.random().toString(36).substr(2, 9) + Date.now();
+};
 
-// Mock data storage
-let mockUsers = [
-  {
-    id: 1,
-    email: 'admin@example.com',
-    password: 'admin123', // In production, never store plain passwords
-    name: 'Admin User',
-    role: 'admin'
-  },
-  {
-    id: 2,
-    email: 'user@example.com',
-    password: 'user123',
-    name: 'Regular User',
-    role: 'user'
-  }
-];
+// Mock users database stored in localStorage
+const getMockUsers = () => {
+  const users = localStorage.getItem('mockUsers');
+  return users ? JSON.parse(users) : [
+    { id: 1, name: 'Demo User', email: 'demo@example.com', password: 'password123' }
+  ];
+};
 
-let mockProducts = [
-  {
-    id: 1,
-    name: 'Wireless Headphones',
-    price: 79.99,
-    discount: 10,
-    image: 'https://via.placeholder.com/250x250?text=Headphones',
-    category: 'electronics',
-    description: 'High-quality wireless headphones with noise cancellation'
-  },
-  {
-    id: 2,
-    name: 'USB-C Cable',
-    price: 9.99,
-    discount: 0,
-    image: 'https://via.placeholder.com/250x250?text=USB+Cable',
-    category: 'accessories',
-    description: 'Durable USB-C charging and data cable'
-  }
-];
+const saveMockUsers = (users) => {
+  localStorage.setItem('mockUsers', JSON.stringify(users));
+};
 
-// Authentication API
+// Authentication API - Mock Implementation
 export const authAPI = {
   register: async (email, password, name) => {
-    if (USE_MOCK_API) {
-      // Check if user already exists
-      if (mockUsers.find(u => u.email === email)) {
-        throw new Error('User already exists with this email');
-      }
-      
-      const newUser = {
-        id: mockUsers.length + 1,
-        email,
-        password,
-        name,
-        role: 'user'
-      };
-      
-      mockUsers.push(newUser);
-      
-      const { password: _, ...userWithoutPassword } = newUser;
-      return {
-        token: `token_${newUser.id}_${Date.now()}`,
-        user: userWithoutPassword
-      };
-    } else {
-      const response = await fetch(`${API_BASE_URL}/auth/register`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password, name })
-      });
-      if (!response.ok) throw new Error('Registration failed');
-      return response.json();
-    }
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        try {
+          const users = getMockUsers();
+          const trimmedEmail = email.trim().toLowerCase();
+          // Check if user already exists (case-insensitive)
+          if (users.find(u => u.email.trim().toLowerCase() === trimmedEmail)) {
+            reject(new Error('Email already registered'));
+            return;
+          }
+          // Validate input
+          if (!name.trim()) {
+            reject(new Error('Name is required'));
+            return;
+          }
+          if (!trimmedEmail.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+            reject(new Error('Invalid email format'));
+            return;
+          }
+          if (password.length < 6) {
+            reject(new Error('Password must be at least 6 characters'));
+            return;
+          }
+          // Create new user
+          const newUser = {
+            id: users.length + 1,
+            name: name.trim(),
+            email: trimmedEmail,
+            password: password.trim()
+          };
+          users.push(newUser);
+          saveMockUsers(users);
+          const token = generateToken();
+          resolve({
+            token,
+            user: { id: newUser.id, name: newUser.name, email: newUser.email }
+          });
+        } catch (error) {
+          reject(error);
+        }
+      }, 500); // Simulate network delay
+    });
   },
 
   login: async (email, password) => {
-    if (USE_MOCK_API) {
-      const user = mockUsers.find(u => u.email === email && u.password === password);
-      
-      if (!user) {
-        throw new Error('Invalid email or password');
-      }
-      
-      const { password: _, ...userWithoutPassword } = user;
-      return {
-        token: `token_${user.id}_${Date.now()}`,
-        user: userWithoutPassword
-      };
-    } else {
-      const response = await fetch(`${API_BASE_URL}/auth/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-      });
-      if (!response.ok) throw new Error('Login failed');
-      return response.json();
-    }
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        try {
+          const users = getMockUsers();
+          const trimmedEmail = email.trim().toLowerCase();
+          const trimmedPassword = password.trim();
+          const user = users.find(u => u.email.trim().toLowerCase() === trimmedEmail && u.password === trimmedPassword);
+          
+          if (!user) {
+            reject(new Error('Invalid email or password'));
+            return;
+          }
+          
+          const token = generateToken();
+          
+          resolve({
+            token,
+            user: { id: user.id, name: user.name, email: user.email }
+          });
+        } catch (error) {
+          reject(error);
+        }
+      }, 500); // Simulate network delay
+    });
   },
 
   logout: async () => {
-    if (USE_MOCK_API) {
-      return { success: true };
-    } else {
-      const response = await fetch(`${API_BASE_URL}/auth/logout`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        localStorage.removeItem('authToken');
+        resolve({ success: true });
+      }, 300);
+    });
+  },
+
+  getCurrentUser: async () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const user = localStorage.getItem('user');
+        if (user) {
+          resolve(JSON.parse(user));
+        } else {
+          resolve(null);
         }
-      });
-      if (!response.ok) throw new Error('Logout failed');
-      return response.json();
-    }
+      }, 300);
+    });
   }
 };
 
-// Products API
+// Products API - Mock Implementation
 export const productsAPI = {
-  getAll: async () => {
-    if (USE_MOCK_API) {
-      return mockProducts;
-    } else {
-      const response = await fetch(`${API_BASE_URL}/products`);
-      if (!response.ok) throw new Error('Failed to fetch products');
-      return response.json();
-    }
+  getAll: async (category = null, search = null) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve([]);
+      }, 300);
+    });
   },
 
   getById: async (id) => {
-    if (USE_MOCK_API) {
-      return mockProducts.find(p => p.id === id);
-    } else {
-      const response = await fetch(`${API_BASE_URL}/products/${id}`);
-      if (!response.ok) throw new Error('Failed to fetch product');
-      return response.json();
-    }
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(null);
+      }, 300);
+    });
   },
 
   create: async (productData) => {
-    if (USE_MOCK_API) {
-      const newProduct = {
-        id: Math.max(...mockProducts.map(p => p.id), 0) + 1,
-        ...productData
-      };
-      mockProducts.push(newProduct);
-      return newProduct;
-    } else {
-      const response = await fetch(`${API_BASE_URL}/products`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('authToken')}`
-        },
-        body: JSON.stringify(productData)
-      });
-      if (!response.ok) throw new Error('Failed to create product');
-      return response.json();
-    }
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(productData);
+      }, 300);
+    });
   },
 
   update: async (id, productData) => {
-    if (USE_MOCK_API) {
-      const index = mockProducts.findIndex(p => p.id === id);
-      if (index === -1) throw new Error('Product not found');
-      mockProducts[index] = { ...mockProducts[index], ...productData };
-      return mockProducts[index];
-    } else {
-      const response = await fetch(`${API_BASE_URL}/products/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('authToken')}`
-        },
-        body: JSON.stringify(productData)
-      });
-      if (!response.ok) throw new Error('Failed to update product');
-      return response.json();
-    }
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(productData);
+      }, 300);
+    });
   },
 
   delete: async (id) => {
-    if (USE_MOCK_API) {
-      mockProducts = mockProducts.filter(p => p.id !== id);
-      return { success: true };
-    } else {
-      const response = await fetch(`${API_BASE_URL}/products/${id}`, {
-        method: 'DELETE',
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('authToken')}`
-        }
-      });
-      if (!response.ok) throw new Error('Failed to delete product');
-      return response.json();
-    }
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({ success: true });
+      }, 300);
+    });
+  },
+
+  getCategories: async () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve([]);
+      }, 300);
+    });
   }
 };
 
-// Orders API
+// Orders API - Mock Implementation
 export const ordersAPI = {
   create: async (orderData) => {
-    if (USE_MOCK_API) {
-      return {
-        orderId: `ORD-${Date.now()}`,
-        ...orderData,
-        createdAt: new Date().toISOString()
-      };
-    } else {
-      const response = await fetch(`${API_BASE_URL}/orders`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('authToken')}`
-        },
-        body: JSON.stringify(orderData)
-      });
-      if (!response.ok) throw new Error('Failed to create order');
-      return response.json();
-    }
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const order = {
+          id: Date.now(),
+          ...orderData,
+          status: 'pending',
+          createdAt: new Date().toISOString()
+        };
+        resolve(order);
+      }, 300);
+    });
   },
 
   getAll: async () => {
-    if (USE_MOCK_API) {
-      return [];
-    } else {
-      const response = await fetch(`${API_BASE_URL}/orders`, {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('authToken')}`
-        }
-      });
-      if (!response.ok) throw new Error('Failed to fetch orders');
-      return response.json();
-    }
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve([]);
+      }, 300);
+    });
+  },
+
+  getById: async (id) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(null);
+      }, 300);
+    });
+  },
+
+  updateStatus: async (id, status) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({ success: true, status });
+      }, 300);
+    });
+  }
+};
+
+// Cart API - Mock Implementation
+export const cartAPI = {
+  getCart: async () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({ items: [] });
+      }, 300);
+    });
+  },
+
+  addItem: async (productId, quantity) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({ success: true });
+      }, 300);
+    });
+  },
+
+  updateItem: async (itemId, quantity) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({ success: true });
+      }, 300);
+    });
+  },
+
+  removeItem: async (itemId) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({ success: true });
+      }, 300);
+    });
+  },
+
+  clearCart: async () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({ success: true });
+      }, 300);
+    });
   }
 };

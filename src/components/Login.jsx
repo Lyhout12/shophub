@@ -5,7 +5,7 @@ import '../styles/Login.css';
 
 export default function Login({ onClose, onSwitchToRegister }) {
   const { login, setError } = useAuth();
-  const [email, setEmail] = useState('admin@example.com');
+  const [email, setEmail] = useState('user@example.com');
   const [password, setPassword] = useState('admin123');
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
