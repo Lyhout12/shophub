@@ -10,7 +10,7 @@ export default function Checkout({ cartItems, totalAmount, onClose, onProceedToP
     address: '',
     city: '',
     state: '',
-    zipCode: '',
+    // zipCode: '',
     country: ''
   });
 
@@ -27,7 +27,7 @@ export default function Checkout({ cartItems, totalAmount, onClose, onProceedToP
     if (!formData.address.trim()) newErrors.address = 'Address is required';
     if (!formData.city.trim()) newErrors.city = 'City is required';
     if (!formData.state.trim()) newErrors.state = 'State is required';
-    if (!formData.zipCode.trim()) newErrors.zipCode = 'Zip code is required';
+    // if (!formData.zipCode.trim()) newErrors.zipCode = 'Zip code is required';
     if (!formData.country.trim()) newErrors.country = 'Country is required';
     
     setErrors(newErrors);
@@ -166,7 +166,7 @@ export default function Checkout({ cartItems, totalAmount, onClose, onProceedToP
               </div>
 
               <div className="form-row">
-                <div className="form-group">
+                {/* <div className="form-group">
                   <label htmlFor="zipCode">Zip/Postal Code *</label>
                   <input
                     type="text"
@@ -177,7 +177,7 @@ export default function Checkout({ cartItems, totalAmount, onClose, onProceedToP
                     className={errors.zipCode ? 'input-error' : ''}
                   />
                   {errors.zipCode && <span className="error-text">{errors.zipCode}</span>}
-                </div>
+                </div> */}
 
                 <div className="form-group">
                   <label htmlFor="country">Country *</label>
